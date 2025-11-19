@@ -1,0 +1,53 @@
+/* Hero & Contact Actions */
+.hero-actions,
+.contact-actions {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.download-cv {
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.download-cv:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #fff;
+    transform: translateY(-3px);
+}
+
+.download-cv svg {
+    transition: transform 0.3s;
+}
+
+.download-cv:hover svg {
+    transform: translateY(3px);
+}
+
+.download-cv.large {
+    font-size: 1.3rem;
+    padding: 1rem 2rem;
+}
+
+/* Mobile adjustments */
+@media (max-width: 640px) {
+    .hero-actions,
+    .contact-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .download-cv {
+        width: 100%;
+        justify-content: center;
+    }
+}

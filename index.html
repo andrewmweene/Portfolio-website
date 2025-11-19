@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrew Buumba Mweene | Software Engineering Student</title>
+    <meta name="description" content="Andrew Buumba Mweene - Computer Science & Software Engineering student at The University of Zambia. Java, Python, Django, Full-Stack Developer.">
+    <link rel="stylesheet" type = "text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h1>Welcome to<br><span>My Portfolio</span></h1>
+                <p class="subtitle">Andrew Buumba Mweene / Software Engineering Student</p>
+                
+                <div class="hero-actions">
+                    <a href="#contact" class="cta">Work with me today</a>
+                    <a href="Andrew_Mweene_Resume.pdf" download class="cta download-cv">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Download Resume (PDF)
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://via.placeholder.com/500?text=Your+Photo" alt="Andrew Buumba Mweene" class="circle-img">
+            </div>
+        </div>
+    </header>
+
+    <!-- Rest of your sections remain exactly the same -->
+    <!-- About, Background, GitHub Projects, Skills, Quote, Contact, Footer -->
+    <!-- (Copy-paste them from the previous version) -->
+
+    <!-- ... [All your existing sections here] ... -->
+
+    <!-- Contact -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2>Reach Out to Me</h2>
+            <div class="contact-info">
+                <p><strong>Address</strong><br>12 Miles, Chibombo, Zambia</p>
+                <p><strong>Email</strong><br><a href="mailto:mweeeneandrew8@gmail.com">mweeeneandrew8@gmail.com</a></p>
+                <p><strong>Phone</strong><br><a href="tel:+260979796404">+260 979 796 404</a></p>
+            </div>
+            <div class="contact-actions">
+                <a href="mailto:mweeeneandrew8@gmail.com" class="cta large">Let's collaborate</a>
+                <a href="Andrew_Mweene_Resume.pdf" download class="cta download-cv large">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Download My Resume
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Andrew Buumba Mweene. Built with passion in Zambia.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
