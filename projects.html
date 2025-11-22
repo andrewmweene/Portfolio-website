@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects • Andrew Buumba Mweene</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Your existing responsive nav here (from previous response) -->
+<nav class="nav">
+  <div class="container nav-grid">
+    <a href="index.html" class="logo">Andrew Mweene</a>
+
+    <!-- Desktop Menu -->
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="projects.html" class="nav-link">Projects</a></li>
+      <li><a href="Andrew_Mweene_Resume.pdf" download class="nav-link download-small">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        Resume
+      </a></li>
+    </ul>
+
+    <!-- Mobile Hamburger -->
+    <button class="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu">
+    <a href="index.html" class="mobile-link">Home</a>
+    <a href="about.html" class="mobile-link">About</a>
+    <a href="projects.html" class="mobile-link">Projects</a>
+    <a href="Andrew_Mweene_Resume.pdf" download class="mobile-link download-mobile">
+      Download Resume (PDF)
+    </a>
+  </div>
+</nav>
+
+  <section class="hero-projects">
+    <div class="container">
+      <h1>My Projects</h1>
+      <p class="lead">Auto-fetched from GitHub — showcasing my latest work in Python, Java, and full-stack development.</p>
+    </div>
+  </section>
+
+  <section class="section projects-page">
+    <div class="container">
+      <div class="projects-grid" id="projects-grid">
+        <!-- Projects load here automatically -->
+        <div class="loading">Fetching projects from GitHub...</div>
+      </div>
+      <div class="github-link">
+        <a href="https://github.com/andrewmweene" target="_blank" class="cta">View Full GitHub Profile</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Your existing footer here -->
+  <footer>
+    <div class="container">
+      <p>© 2025 Andrew Buumba Mweene • More projects coming soon!</p>
+    </div>
+  </footer>
+
+  <script>
+    // Auto-fetch GitHub projects
+    async function fetchProjects() {
+      const username = 'andrewmweene'; // Replace with your actual GitHub username
+      const grid = document.getElementById('projects-grid');
+      const loading = grid.querySelector('.loading');
+
+      try {
+        const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6&direction=desc`);
+        
+        if (!response.ok) {
+          throw new Error('Profile not found — check username');
+        }
+
+        const repos = await response.json();
+        grid.innerHTML = ''; // Clear loading
+
+        if (repos.length === 0) {
+          grid.innerHTML = '<p class="no-projects">No public repos yet — start building!</p>';
+          return;
+        }
+
+        repos.forEach(repo => {
+          const card = document.createElement('div');
+          card.className = 'project-card large';
+          card.innerHTML = `
+            <img src="https://via.placeholder.com/800x500/1a1a1a/fff?text=${encodeURIComponent(repo.name)}" alt="${repo.name}" onerror="this.src='https://via.placeholder.com/800x500/1a1a1a/fff?text=GitHub+Repo'">
+            <div class="project-info">
+              <h3>${repo.name}</h3>
+              <p>${repo.description || 'A cool project built with modern tools.'}</p>
+              <div class="project-meta">
+                <span class="stars">⭐ ${repo.stargazers_count}</span>
+                <span class="language">${repo.language || 'Python'}</span>
+              </div>
+              <div class="tags">${repo.language ? repo.language : 'Django • Java'}</div>
+              <a href="${repo.html_url}" target="_blank" class="project-link">View on GitHub →</a>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+
+      } catch (error) {
+        console.error('GitHub fetch error:', error);
+        grid.innerHTML = `
+          <div class="error-card">
+            <p>Couldn't fetch projects (check username: ${username}). Using demo data:</p>
+            <div class="project-card large demo">
+              <img src="https://via.placeholder.com/800x500/1a1a1a/fff?text=E-Commerce+Demo" alt="Demo Project">
+              <div class="project-info">
+                <h3>E-Commerce Demo (Python/Django)</h3>
+                <p>Full-stack store with auth and payments.</p>
+                <div class="project-meta"><span class="stars">⭐ 5</span><span class="language">Python</span></div>
+                <div class="tags">Django • PostgreSQL</div>
+                <a href="https://github.com" target="_blank" class="project-link">Explore →</a>
+              </div>
+            </div>
+            <div class="project-card large demo">
+              <img src="https://via.placeholder.com/800x500/1a1a1a/fff?text=Task+Manager" alt="Demo Task App">
+              <div class="project-info">
+                <h3>TaskFlow Demo (Flask)</h3>
+                <p>Task manager with real-time updates.</p>
+                <div class="project-meta"><span class="stars">⭐ 3</span><span class="language">Python</span></div>
+                <div class="tags">Flask • SQLite</div>
+                <a href="https://github.com" target="_blank" class="project-link">Explore →</a>
+              </div>
+            </div>
+          `;
+      }
+    }
+
+    // Load on page ready
+    document.addEventListener('DOMContentLoaded', fetchProjects);
+  </script>
+</body>
+</html>

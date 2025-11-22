@@ -5,11 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andrew Buumba Mweene | Software Engineering Student</title>
     <meta name="description" content="Andrew Buumba Mweene - Computer Science & Software Engineering student at The University of Zambia. Java, Python, Django, Full-Stack Developer.">
-    <link rel="stylesheet" type = "text/css" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <nav class="nav">
+  <div class="container nav-grid">
+    <a href="index.html" class="logo">Andrew Mweene</a>
+
+    <!-- Desktop Menu -->
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="projects.html" class="nav-link">Projects</a></li>
+      <li><a href="Andrew_Mweene_Resume.pdf" download class="nav-link download-small">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        Resume
+      </a></li>
+    </ul>
+
+    <!-- Mobile Hamburger -->
+    <button class="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu">
+    <a href="index.html" class="mobile-link">Home</a>
+    <a href="about.html" class="mobile-link">About</a>
+    <a href="projects.html" class="mobile-link">Projects</a>
+    <a href="Andrew_Mweene_Resume.pdf" download class="mobile-link download-mobile">
+      Download Resume (PDF)
+    </a>
+  </div>
+</nav>
 
     <!-- Hero -->
     <header class="hero">
@@ -31,7 +68,7 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="https://via.placeholder.com/500?text=Your+Photo" alt="Andrew Buumba Mweene" class="circle-img">
+                <img src="images/IMG-20230527-WA0019.jpg" alt="Andrew Buumba Mweene" class="circle-img">
             </div>
         </div>
     </header>

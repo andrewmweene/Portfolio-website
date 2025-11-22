@@ -1,0 +1,11 @@
+Flask
+Frozen-Flask# requirements.txt — for deploying your static portfolio
+# Works on Render, Railway, PythonAnywhere, etc.
+
+Flask==3.0.3
+Flask-Frozen==1.0.0        # Converts static site to frozen HTML (optional but recommended)
+gunicorn==22.0.0           # WSGI server (required by most platforms)
+whitenoise==6.7.0          # Serves static files (CSS, JS, PDF, images) in production
+
+# Optional: if you want to auto-build on deploy
+mkdocs==1.6.0              # Alternative static site generator (not needed if using plain HTML)
